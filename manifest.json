@@ -3,9 +3,7 @@
 	"name": "Generator",
 	"description": "Generuje różne identyfikatory i numery np. NIP, REGON itp.",
 	"version": "1.0",
-	"developer" : { "name" : "Cezary Kąpicki",
-					"url": "https://github.com/czarek1986/Generator-Chromium-Extension" 
-				},
+	"author" : "Cezary Kąpicki",
 	"permissions": ["contextMenus"],
 	"background" : { "scripts" : ["generator.js"]},
 	"content_scripts" : [ { 
