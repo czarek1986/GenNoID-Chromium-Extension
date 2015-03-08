@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"name": "Generator",
+	"name": "GenNoID",
 	"description": "Generuje różne identyfikatory i numery np. NIP, REGON itp.",
 	"version": "1.0",
 	
