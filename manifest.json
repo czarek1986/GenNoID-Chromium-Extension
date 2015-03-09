@@ -2,10 +2,7 @@
 	"manifest_version": 2,
 	"name": "GenNoID",
 	"description": "Generuje różne identyfikatory i numery np. NIP, REGON itp.",
-	"version": "1.0.2",
-	"developer" : { "name" : "Cezary Kąpicki",
-					"url": "https://github.com/czarek1986/GenNoID-Chromium-Extension.git" 
-				},
+	"version": "1.0.1",
 	"permissions": ["contextMenus"],
 	"background" : { "scripts" : ["generator.js"]},
 	"content_scripts" : [ { 
