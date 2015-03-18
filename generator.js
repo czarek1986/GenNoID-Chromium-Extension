@@ -54,6 +54,17 @@ chrome.contextMenus.create({
 			}
 });
 
+chrome.contextMenus.create({
+	title: "Generuj numer dowodu",
+	type : "normal",
+	contexts : ["editable"],
+	onclick: function(info, tab) 
+			{ 
+				var id = generatePLIDNumber(); 
+				sendGeneratedValueToDomElem(tab, id); 
+			}
+});
+
 
 
 function generateNIP(){
@@ -161,6 +172,31 @@ function generateREGON(length) {
 	regon[weights.length + 1] = ((sum % 11 == 10) ? 0 : sum % 11);
 
 	return regon.join("");
+}
+
+function generatePLIDNumber() {
+	var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+	var shuffleLetters = letters.slice(0);
+	var weights = [7, 3, 1, 0, 7, 3, 1, 7, 3];
+	
+	var idArr = [];
+	var sum = 0;
+	idArr[0] = 'A';
+	sum += ((letters.indexOf(idArr[0]) + 10) * weights[0]);
+	
+	idArr[1] = shuffleLetters.shuffle()[0];
+	sum += ((letters.indexOf(idArr[1]) + 10) * weights[1]);
+	
+	idArr[2] = shuffleLetters.shuffle()[0];
+	sum += ((letters.indexOf(idArr[2]) + 10) * weights[2]);
+	
+	for(var i = 4; i <= 8; i++) {
+		idArr[i] = Math.floor(Math.random() * 10);
+		sum += idArr[i] * weights[i];
+	}
+	
+	idArr[3] = sum % 10;
+	return idArr.join("");	
 }
 
 
